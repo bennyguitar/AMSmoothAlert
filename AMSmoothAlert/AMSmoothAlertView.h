@@ -14,7 +14,7 @@
 
 @class AMSmoothAlertView;
 
-typedef void (^dismissAlertWithButton)(AMSmoothAlertView *, UIButton *);
+typedef void (^dismissAlertWithButton)(AMSmoothAlertView *view, UIButton *btn, BOOL wasCancelled);
 
 @protocol AMSmoothAlertViewDelegate;
 

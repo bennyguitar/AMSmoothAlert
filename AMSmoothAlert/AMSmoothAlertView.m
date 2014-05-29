@@ -112,10 +112,16 @@
     alertView.center = self.center;
     [self addSubview:alertView];
     [self circleSetupForAlertType:type andColor:color];
+    
+    // Button
+    UIButton *clearButton = [[UIButton alloc] initWithFrame:self.bounds];
+    clearButton.backgroundColor = [UIColor clearColor];
+    [clearButton addTarget:self action:@selector(dismissAlertView) forControlEvents:UIControlEventTouchUpInside];
+    [self insertSubview:clearButton belowSubview:alertView];
 }
 
 
-- (UIView*) alertPopupView
+- (UIView*)alertPopupView
 {
     UIView * alertSquare = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.alertSize.width, self.alertSize.height)];
     
@@ -529,7 +535,7 @@
     }
     
     if(self.completionBlock) {
-        self.completionBlock(self, button);
+        self.completionBlock(self, button, sender == _cancelButton);
     }
 }
 
