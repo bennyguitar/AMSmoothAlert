@@ -20,7 +20,7 @@ typedef void (^dismissAlertWithButton)(AMSmoothAlertView *, UIButton *);
 
 @interface AMSmoothAlertView : UIView
 
-
+@property (nonatomic) CGSize alertSize;
 @property (nonatomic, assign) float cornerRadius;
 @property (nonatomic, assign) bool isDisplayed;
 @property (nonatomic, assign) AnimationType animationType;
@@ -35,17 +35,17 @@ typedef void (^dismissAlertWithButton)(AMSmoothAlertView *, UIButton *);
 @property (nonatomic, copy) dismissAlertWithButton completionBlock;
 
 
-- (id) initDropAlertWithTitle:(NSString*) title andText:(NSString*) text andCancelButton:(BOOL)hasCancelButton forAlertType:(AlertType) type;
-- (id) initDropAlertWithTitle:(NSString*) title andText:(NSString*) text andCancelButton:(BOOL)hasCancelButton forAlertType:(AlertType) type andColor:(UIColor*) color;
-- (id) initFadeAlertWithTitle:(NSString*) title andText:(NSString*) text andCancelButton:(BOOL)hasCancelButton forAlertType:(AlertType) type;
-- (id) initFadeAlertWithTitle:(NSString*) title andText:(NSString*) text andCancelButton:(BOOL)hasCancelButton forAlertType:(AlertType) type andColor:(UIColor*) color;
+- (id) initDropAlertWithTitle:(NSString*) title andText:(NSString*) text andCancelButton:(BOOL)hasCancelButton forAlertType:(AlertType)type size:(CGSize)size buttons:(NSArray *)btns;
+- (id) initDropAlertWithTitle:(NSString*) title andText:(NSString*) text andCancelButton:(BOOL)hasCancelButton forAlertType:(AlertType) type andColor:(UIColor*)color size:(CGSize)size buttons:(NSArray *)btns;
+- (id) initFadeAlertWithTitle:(NSString*) title andText:(NSString*) text andCancelButton:(BOOL)hasCancelButton forAlertType:(AlertType) type size:(CGSize)size buttons:(NSArray *)btns;
+- (id) initFadeAlertWithTitle:(NSString*) title andText:(NSString*) text andCancelButton:(BOOL)hasCancelButton forAlertType:(AlertType) type andColor:(UIColor*) color size:(CGSize)size buttons:(NSArray *)btns;
 
 // init with completion block
 
-- (id) initDropAlertWithTitle:(NSString*) title andText:(NSString*) text andCancelButton:(BOOL)hasCancelButton forAlertType:(AlertType) type withCompletionHandler:(dismissAlertWithButton) completionHandler;
-- (id) initDropAlertWithTitle:(NSString*) title andText:(NSString*) text andCancelButton:(BOOL)hasCancelButton forAlertType:(AlertType) type andColor:(UIColor*) color withCompletionHandler:(dismissAlertWithButton) completionHandler;
-- (id) initFadeAlertWithTitle:(NSString*) title andText:(NSString*) text andCancelButton:(BOOL)hasCancelButton forAlertType:(AlertType) type withCompletionHandler:(dismissAlertWithButton) completionHandler;
-- (id) initFadeAlertWithTitle:(NSString*) title andText:(NSString*) text andCancelButton:(BOOL)hasCancelButton forAlertType:(AlertType) type andColor:(UIColor*) color withCompletionHandler:(dismissAlertWithButton) completionHandler;
+- (id) initDropAlertWithTitle:(NSString*) title andText:(NSString*) text andCancelButton:(BOOL)hasCancelButton forAlertType:(AlertType) type size:(CGSize)size buttons:(NSArray *)btns withCompletionHandler:(dismissAlertWithButton) completionHandler;
+- (id) initDropAlertWithTitle:(NSString*) title andText:(NSString*) text andCancelButton:(BOOL)hasCancelButton forAlertType:(AlertType) type andColor:(UIColor*) color size:(CGSize)size buttons:(NSArray *)btns withCompletionHandler:(dismissAlertWithButton) completionHandler;
+- (id) initFadeAlertWithTitle:(NSString*) title andText:(NSString*) text andCancelButton:(BOOL)hasCancelButton forAlertType:(AlertType) type size:(CGSize)size buttons:(NSArray *)btns withCompletionHandler:(dismissAlertWithButton) completionHandler;
+- (id) initFadeAlertWithTitle:(NSString*) title andText:(NSString*) text andCancelButton:(BOOL)hasCancelButton forAlertType:(AlertType) type andColor:(UIColor*) color size:(CGSize)size buttons:(NSArray *)btns withCompletionHandler:(dismissAlertWithButton) completionHandler;
 
 - (void) setCornerRadius:(float)cornerRadius;
 - (void) setTitleText:(NSString*) string;
